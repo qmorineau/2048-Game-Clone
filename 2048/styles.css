@@ -1,0 +1,89 @@
+#container {
+    position: relative;
+    background-color: #BBADA0;
+    display: grid;
+    height: 430px;
+    width: 430px;
+    border-radius: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    color: black;
+}
+
+.block {
+   height: 100px;
+   width: 100px;
+   border-radius: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #CDC1B4;
+}
+
+.number {
+   position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CDC1B4;
+}
+
+
+
+.x2 {
+    background-color: #EEE4DA;
+}
+
+.x4 {
+    background-color: #EEE1C9;
+}
+
+.x8 {
+   background-color: #F3B27A;
+}
+
+.x16 {
+   background-color: #F69664;
+}
+
+.x32 {
+   background-color: #F77C5F;
+}
+
+.x64 {
+   background-color: #F75F3B;
+}
+
+.x128 {
+   background-color: #EDD073;
+}
+
+.x256 {
+   background-color: #EDCC62;
+}
+
+.x512 {
+   background-color: #EDC950;
+}
+
+.x1024 {
+   background-color: #EDC53F;
+}
+
+.x2048 {
+   background-color: #EDC22E;
+}
+
+.x4096 {
+   background-color: #3C3A33;
+}
+
+.x8192 {
+   background-color: #3C3A33;
+}
+
