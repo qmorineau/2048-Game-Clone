@@ -1,34 +1,33 @@
-// Variables 
+////// Variables //////
 
-const grid = document.querySelector("#container");
+const grid = document.querySelector("#game-container");
+const score = document.querySelector("#score");
 
-let emptyGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
+//Array for children of the grid container
+let emptyGrid;
+//Array for position of the children
 const rows = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12],
     [13, 14, 15, 16],
 ];
-
 const rowsReverse = rows.map(subArray => [...subArray]);
 rowsReverse.forEach(element => {
    element.reverse()
 });
-
 const columns = [
     [1, 5, 9, 13],
     [2, 6, 10, 14],
     [3, 7, 11, 15],
     [4, 8, 12, 16],
 ];
-
 const columnsReverse = columns.map(subArray => [...subArray]);
 columnsReverse.forEach(element => {
    element.reverse()
 });
 
-// Functions
+////// Functions //////
 
 let randomPosition = () => {
     random = Math.floor(Math.random()*16)
@@ -50,7 +49,8 @@ let newNumber = () => {
     }
 }
 
-let action = (array) => {
+let move = (array) => {
+    resetGrid()
     let temp = [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
@@ -71,20 +71,14 @@ let action = (array) => {
             }
         }
     }
-    let newTemp = []
-    temp.forEach(element => {
-        let filtered = element.filter((number) => number != 0)
-        while (filtered.length !== 4) {
-            filtered.unshift(0)
-        }
-        newTemp.push(filtered)
-    })
-    resetGrid()
-    removeNumber()
+    let newTemp = removeZero(temp);
+    resetGrid();
+    removeNumber();
     for (let i = 0; i <= 3; i++) {
         for (let j = 2; j >= 0; j--) {
             if (newTemp[i][j] == newTemp[i][j+1] && newTemp[i][j] !== 0) {
                 newTemp[i][j+1] = parseInt(newTemp[i][j])+parseInt(newTemp[i][j+1])
+                incrementScore(newTemp[i][j+1])
                 newTemp[i].splice(j, 1)
                 if (newTemp[i].length !== 4) {
                     newTemp[i].unshift(0)
@@ -104,6 +98,26 @@ let action = (array) => {
     resetGrid()
 }
 
+let removeZero = (temp) => {
+    let newTemp = []
+    temp.forEach(element => {
+        let filtered = element.filter((number) => number != 0)
+        while (filtered.length !== 4) {
+            filtered.unshift(0)
+        }
+        newTemp.push(filtered)
+    })
+    return newTemp
+}
+
+/* let retrieveGrid = () => {
+
+} */
+
+let incrementScore = (number) => {
+    score.textContent = parseInt(score.textContent) + parseInt(number)
+}
+
 let removeNumber = () => {
     for (i = 0; i < 16; i++) {
         grid.children[i].textContent = "";
@@ -116,25 +130,25 @@ let resetGrid = () => {
     emptyGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 }
 
-// Actions
+////// Actions //////
 
 newNumber()
 document.addEventListener("keyup", (e) => {
     switch(e.key) {
         case "ArrowUp" :
-            action(columnsReverse)
+            move(columnsReverse)
             newNumber()
             break;
         case "ArrowDown" :
-            action(columns)
+            move(columns)
             newNumber()
             break;
         case "ArrowLeft" :
-            action(rowsReverse)
+            move(rowsReverse)
             newNumber()
             break;
         case "ArrowRight" :
-            action(rows)
+            move(rows)
             newNumber()
             break;
     }

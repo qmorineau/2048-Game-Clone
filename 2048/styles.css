@@ -9,12 +9,13 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
    height: 95vh;
    max-height: 100vh;
    max-width: 100vw;
 }
 
-#container {
+#game-container {
     position: relative;
     background-color: #BBADA0;
     display: grid;
