@@ -2,6 +2,7 @@
 
 const grid = document.querySelector("#game-container");
 const score = document.querySelector("#score");
+let isGameOver = false;
 let emptyGrid;
 
 //Array for position of the children
@@ -109,9 +110,52 @@ let removeZero = (temp) => {
     return newTemp
 }
 
-/* let retrieveGrid = () => {
+let checkMove = (array, gameOver) => {
+    resetGrid()
+    let temp = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+    ];
+    for (let i = 0; i < 16; i++) {
+        if (grid.children[i].textContent){
+            emptyGrid[i] = grid.children[i].textContent
+        }
+    }
+    for (let i = 0; i < 16; i++) {
+        if (emptyGrid[i]) {
+            for (let j = 0; j < 4; j++) {
+                if (array[j].indexOf(i+1) !== -1) {
+                    temp[j][array[j].indexOf(i+1)] = emptyGrid[i]
+                }
+            }
+        }
+    }
+    let newTemp = removeZero(temp);
+    resetGrid();
+    for (let i = 0; i <= 3; i++) {
+        for (let j = 2; j >= 0; j--) {
+            if (newTemp[i][j] == newTemp[i][j+1] && newTemp[i][j] !== 0) {
+                newTemp[i].splice(j, 1)
+                if (newTemp[i].length !== 4) {
+                    newTemp[i].unshift(0)
+                }
+            }
+        }
+    }
+    if (temp.toString() === newTemp.toString()) {
+        return false
+    } else {
+        return true
+    }
+}
 
-} */
+let checkGameOver = () => {
+    if (checkMove(columns) == false && checkMove(columnsReverse) == false && checkMove(rows) == false && checkMove(rowsReverse) == false) {
+        isGameOver = true
+    }
+}
 
 let incrementScore = (number) => {
     score.textContent = parseInt(score.textContent) + parseInt(number)
@@ -133,22 +177,36 @@ let resetGrid = () => {
 
 newNumber()
 document.addEventListener("keyup", (e) => {
-    switch(e.key) {
-        case "ArrowUp" :
-            move(columnsReverse)
-            newNumber()
-            break;
-        case "ArrowDown" :
-            move(columns)
-            newNumber()
-            break;
-        case "ArrowLeft" :
-            move(rowsReverse)
-            newNumber()
-            break;
-        case "ArrowRight" :
-            move(rows)
-            newNumber()
-            break;
+    if (!isGameOver) {
+        switch(e.key) {
+            case "ArrowUp" :
+                if (checkMove(columnsReverse)) {
+                move(columnsReverse)
+                newNumber()
+                }
+                break;
+            case "ArrowDown" :
+                if (checkMove(columns)) {
+                console.log(checkMove(columns))
+                move(columns)
+                newNumber()
+                }
+                break;
+            case "ArrowLeft" :
+                if (checkMove(rowsReverse)) {
+                move(rowsReverse)
+                newNumber()
+                }
+                break;
+            case "ArrowRight" :
+                if (checkMove(rows)) {
+                move(rows)
+                newNumber()
+                }
+                break;
+        }
+        checkGameOver()
+    } else {
+        // faire apparaitre bouton reset, le score etc...
     }
 })
