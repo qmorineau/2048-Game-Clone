@@ -23,7 +23,7 @@ body {
     width: 430px;
     border-radius: 5px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: auto;
     gap: 10px;
     padding: 10px;
     color: black;
@@ -82,17 +82,38 @@ body {
 
 .x1024 {
    background-color: #EDC53F;
+   font-size: 38px;
 }
 
 .x2048 {
    background-color: #EDC22E;
+   font-size: 38px;
+   box-shadow: 0 0 4px #EDC22E,
+   0 0 11px #EDC22E,
+   0 0 19px #EDC22E,
+   0 0 40px rgb(251, 239, 70),
+   0 0 80px rgb(237, 193, 46, 0.7),
+   0 0 90px rgb(237, 193, 46, 0.7),
+   0 0 100px rgb(237, 193, 46, 0.7),
+   0 0 150px rgb(237, 193, 46, 0.7),
 }
 
-.x4096 {
-   background-color: #3C3A33;
-}
-
+.x4096,
 .x8192 {
    background-color: #3C3A33;
+   font-size: 38px;
+}
+
+.x16384,
+.x32768,
+.x65536 {
+   background-color: #000000;
+   font-size: 30px;
+}
+
+.x131072 {
+   background: linear-gradient(120deg, rgba(255,97,97,1) 0%, rgba(255,186,94,1) 20%, rgba(252,255,110,1) 40%, rgba(131,255,122,1) 60%, rgba(125,120,255,1) 80%, rgba(241,110,255,1) 100%);
+   color: black;
+   font-size: 38px;
 }
 

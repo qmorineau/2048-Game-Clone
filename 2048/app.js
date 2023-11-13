@@ -2,9 +2,8 @@
 
 const grid = document.querySelector("#game-container");
 const score = document.querySelector("#score");
-
-//Array for children of the grid container
 let emptyGrid;
+
 //Array for position of the children
 const rows = [
     [1, 2, 3, 4],
