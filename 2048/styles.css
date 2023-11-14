@@ -118,3 +118,19 @@ body {
    border: 1px solid white;
 }
 
+#gameOverModal {
+   position: absolute;
+   height: 100vh;
+   width: 100vw;
+   background-color: rgba(0, 0, 0, 0.557);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#gameOverWindow {
+   width: 50%;
+   height: 50%;
+   background-color: #EEE1C9;
+
+}

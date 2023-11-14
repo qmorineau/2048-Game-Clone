@@ -1,5 +1,5 @@
 ////// Variables //////
-
+const body = document.querySelector('body')
 const grid = document.querySelector("#game-container");
 const score = document.querySelector("#score");
 let isGameOver = false;
@@ -176,37 +176,42 @@ let resetGrid = () => {
 ////// Actions //////
 
 newNumber()
+
 document.addEventListener("keyup", (e) => {
     if (!isGameOver) {
-        switch(e.key) {
-            case "ArrowUp" :
-                if (checkMove(columnsReverse)) {
-                move(columnsReverse)
-                newNumber()
-                }
-                break;
-            case "ArrowDown" :
-                if (checkMove(columns)) {
-                console.log(checkMove(columns))
-                move(columns)
-                newNumber()
-                }
-                break;
-            case "ArrowLeft" :
-                if (checkMove(rowsReverse)) {
-                move(rowsReverse)
-                newNumber()
-                }
-                break;
-            case "ArrowRight" :
-                if (checkMove(rows)) {
-                move(rows)
-                newNumber()
-                }
-                break;
+    switch(e.key) {
+        case "ArrowUp" :
+            if (checkMove(columnsReverse)) {
+            move(columnsReverse)
+            newNumber()
+            }
+            break;
+        case "ArrowDown" :
+            if (checkMove(columns)) {
+            move(columns)
+            newNumber()
+            }
+            break;
+        case "ArrowLeft" :
+            if (checkMove(rowsReverse)) {
+            move(rowsReverse)
+            newNumber()
+            }
+            break;
+        case "ArrowRight" :
+            if (checkMove(rows)) {
+            move(rows)
+            newNumber()
+            }
+            break;
         }
-        checkGameOver()
+    checkGameOver()
     } else {
-        // faire apparaitre bouton reset, le score etc...
+        console.log("game over")
+        let newDiv = document.createElement('div');
+        let gameOverModal = body.appendChild(newDiv);
+        gameOverModal.id = "gameOverModal";
+        let gameOverWindow = gameOverModal.appendChild(newDiv);
+        gameOverWindow.id = "gameOverWindow";
     }
 })
