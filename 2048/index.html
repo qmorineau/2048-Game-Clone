@@ -7,30 +7,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <div id="score-container">
-            <div id="score-text">Score</div>
-            <div id="score">0</div>
+    <header>
+        <div>
+            <h1>2048</h1>
+            <div id="score container">
+                <div class="score main-score">
+                    <p>Score</p>
+                    <h2>0</h2>
+                </div>
+                <div class="score best-score">
+                    <p>Best</p>
+                    <h2>0</h2>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="game-container">
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-    </div>
+        <div>
+            <div id="info">
+                <p>Join the tiles, get to <span>2048!</span></p>
+                <a href="">How to play 	&rarr;</a>
+            </div>
+            <button>New Game</button>
+        </div>
+    </header>
+    <main>
+        <div id="game-container">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div id="game-over-modal" class="hidden">
+                <h1>Game over!</h1>
+                <button>Try again !</button>
+            </div>
+        </div>
+        <p><strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> to move the tiles. Tiles with the same number <strong>merge into one</strong> when they touch. Add them up to reach <strong>2048!</strong></p>
+        <a href="#game-container">Start playing</a>
+    </main>
+    <footer>
+        <p>You're playing a clone version of 2048. Try out the <a href="https://play2048.co/">official website</a>.</p>
+        <hr>
+        <p>Clone created by <a href="">Quentin Morineau</a></p>
+    </footer>
     <script src="app.js"></script>
 </body>
 </html>

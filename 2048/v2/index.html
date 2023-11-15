@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <button id="contact">Contact Me</button>
+    <div class="container">
+        <div id="title-and-score">
+            <h1>2048</h1>
+            <div id="score-container">
+                <div class="score main-score">
+                    <h3>SCORE</h3>
+                    <h2>0</h2>
+                </div>
+                <div class="score best-score">
+                    <h3>BEST</h3>
+                    <h2>0</h2>
+                </div>
+            </div>
+        </div>
+        <div id="rules-and-button">
+            <div>
+                <p>Join the tiles, get to <strong>2048!</strong></p>
+                <a href="#rules"><strong>How to play &rarr;</strong></a>
+            </div>
+            <button>New Game</button>
+        </div>
+        <div id="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div id="game-over">
+                <h1>Game over!</h1>
+                <button>Try again</button>
+            </div>
+        </div>
+        <div id="rules-and-footer">
+            <div id="rules">
+                <p><strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> to move the tiles. Tiles with the same number <strong>merge into one</strong> when they touch. Add them up to reach <strong>2048!</strong></p>
+                <a href="#board"><strong>Start playing &rarr;</strong></a> 
+            </div>
+            <hr>
+            <p>You're playing a clone version of 2048.</p>
+            <p>Try out the <a href="https://play2048.co/"><strong>official website</strong></a>.</p>
+            <hr>
+            <p>Clone created by <a href=""><strong>Quentin Morineau</strong></a></p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+#contact {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: $bg3;
+    color: $color2;
+    font-size: 13px;
+    line-height: 22px;
+    opacity: 50%;
+    width: 100px;
+    border-bottom-left-radius: 5px;
+    transition: 0.15s;
+}
+
+#contact:hover {
+    opacity: 100%;
+}
+
+#title-and-score {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+#title-and-score h1 {
+    font-size: 80px;
+    color: $color3
+}
+
+#score-container {
+    display: flex;
+    gap: 5px;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3px;
+    background: $bg2;
+    height: 45px;
+    padding: 0px 10px;
+    margin-top: 8px;
+}
+
+.score h3 {
+    color: #EEE4DA;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.score h2 {
+    color: $color1;
+    font-size: 25px;
+    line-height: 0.8;
+}
+
+p,
+a {
+    color: $color3;
+}
+
+#rules-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px
+}
+
+#rules-and-button button{
+    @include button;
+}

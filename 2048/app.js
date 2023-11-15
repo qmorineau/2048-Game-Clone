@@ -176,7 +176,7 @@ let resetGrid = () => {
 ////// Actions //////
 
 newNumber()
-
+newNumber()
 document.addEventListener("keyup", (e) => {
     if (!isGameOver) {
     switch(e.key) {

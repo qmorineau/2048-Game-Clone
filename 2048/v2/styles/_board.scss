@@ -1,0 +1,101 @@
+#board {
+   position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 15px;
+    height: 500px;
+    border-radius: 6px;
+    background-color: $bg2;
+    margin-bottom: 40px;
+}
+
+.cell {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 106px;
+   width: 106px;
+   border-radius: 3px;
+   background-color: $bg1;
+   font-size: 55px;
+   font-weight: 700;
+}
+
+#game-over {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   height: 100%;
+   width: 100%;
+   background-color: #000000a4;
+}
+
+// Cell Number Color
+.x2 {
+    background-color: #EEE4DA;
+    color: #776e65;
+}
+
+.x4 {
+    background-color: #EEE1C9;
+    color: #776e65;
+}
+
+.x8 {
+   background-color: #F3B27A;
+}
+
+.x16 {
+   background-color: #F69664;
+}
+
+.x32 {
+   background-color: #F77C5F;
+}
+
+.x64 {
+   background-color: #F75F3B;
+}
+
+.x128 {
+   background-color: #EDD073;
+}
+
+.x256 {
+   background-color: #EDCC62;
+}
+
+.x512 {
+   background-color: #EDC950;
+}
+
+.x1024 {
+   background-color: #EDC53F;
+   font-size: 38px;
+}
+
+.x2048 {
+   background-color: #EDC22E;
+   font-size: 38px;
+}
+
+.x4096,
+.x8192 {
+   background-color: #3C3A33;
+   font-size: 38px;
+}
+
+.x16384,
+.x32768,
+.x65536 {
+   background-color: #000000;
+   font-size: 30px;
+}
+
+.x131072 {
+   background: linear-gradient(120deg, rgba(255,97,97,1) 0%, rgba(255,186,94,1) 20%, rgba(252,255,110,1) 40%, rgba(131,255,122,1) 60%, rgba(125,120,255,1) 80%, rgba(241,110,255,1) 100%);
+   color: black;
+   font-size: 25px;
+   border: 1px solid white;
+}

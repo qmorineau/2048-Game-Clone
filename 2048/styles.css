@@ -2,25 +2,72 @@
 
 * {
    font-family: "Clear Sans";
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   outline: 1px solid red;
 }
 
 body {
    background-color: #faf8ef;
+}
+
+header,
+main,
+footer {
+   max-width: 500px;
+}
+
+header:nth-child(0){
    display: flex;
-   justify-content: center;
-   align-items: center;
+   justify-content: space-between;
+}
+
+#score-container {
+   display: flex;
+}
+
+.score {
+   color: #ffffff;
+   background-color: #bbada0;
+   display: flex;
    flex-direction: column;
-   height: 95vh;
-   max-height: 100vh;
-   max-width: 100vw;
+   align-items: center;
+   max-height: 25px;
+}
+
+header:nth-child(1) {
+   display: flex;
+   justify-content: space-between;
+}
+
+
+button {
+   font-weight: 600;
+   color: #f9f6f2;
+   background-color: #8f7a66;
+   border: none;
+   font-size: 18px;
+   line-height: 42px;
+   padding: 0px 20px;
+   border-radius: 3px;
+}
+
+#info {
+   width: 50%;
+}
+
+
+#score-cell {
+   display: flex;
 }
 
 #game-container {
     position: relative;
     background-color: #BBADA0;
     display: grid;
-    height: 430px;
-    width: 430px;
+    height: 500px;
+    width: 500px;
     border-radius: 5px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
@@ -29,7 +76,7 @@ body {
     color: black;
 }
 
-.block {
+.cell {
    height: 100px;
    width: 100px;
    border-radius: 5px;
@@ -88,14 +135,6 @@ body {
 .x2048 {
    background-color: #EDC22E;
    font-size: 38px;
-   box-shadow: 0 0 4px #EDC22E,
-   0 0 11px #EDC22E,
-   0 0 19px #EDC22E,
-   0 0 40px rgb(251, 239, 70),
-   0 0 80px rgb(237, 193, 46, 0.7),
-   0 0 90px rgb(237, 193, 46, 0.7),
-   0 0 100px rgb(237, 193, 46, 0.7),
-   0 0 150px rgb(237, 193, 46, 0.7),
 }
 
 .x4096,
@@ -118,19 +157,22 @@ body {
    border: 1px solid white;
 }
 
-#gameOverModal {
+#game-over-modal {
    position: absolute;
-   height: 100vh;
-   width: 100vw;
-   background-color: rgba(0, 0, 0, 0.557);
+   top: 0px;
+   left: 0px;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(237, 227, 217, 0.73);
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
+   gap: 50px;
 }
 
-#gameOverWindow {
-   width: 50%;
-   height: 50%;
-   background-color: #EEE1C9;
-
+#game-over-modal h1{
+   color: #776e65;
+   font-size: 60px;
 }
+

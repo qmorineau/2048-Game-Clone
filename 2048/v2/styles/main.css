@@ -1,0 +1,230 @@
+@import url("https://fonts.cdnfonts.com/css/clear-sans");
+@import url("https://fonts.cdnfonts.com/css/helvetica-neue-55");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a,
+a:visited {
+  text-transform: none;
+}
+
+button {
+  border: none;
+}
+
+* {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  /* outline: 1px solid red; */
+}
+
+body {
+  background-color: #faf8ef;
+}
+
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#contact {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #8f7a66;
+  color: #faf8ef;
+  font-size: 13px;
+  line-height: 22px;
+  opacity: 50%;
+  width: 100px;
+  border-bottom-left-radius: 5px;
+  transition: 0.15s;
+}
+
+#contact:hover {
+  opacity: 100%;
+}
+
+#title-and-score {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+#title-and-score h1 {
+  font-size: 80px;
+  color: #776e65;
+}
+
+#score-container {
+  display: flex;
+  gap: 5px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;
+  background: #bbada0;
+  height: 45px;
+  padding: 0px 10px;
+  margin-top: 8px;
+}
+
+.score h3 {
+  color: #EEE4DA;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.score h2 {
+  color: #ffffff;
+  font-size: 25px;
+  line-height: 0.8;
+}
+
+p,
+a {
+  color: #776e65;
+}
+
+#rules-and-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+#rules-and-button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8f7a66;
+  height: 40px;
+  color: #faf8ef;
+  font-weight: 700;
+  line-height: 42px;
+  padding: 0 20px;
+  border-radius: 3px;
+}
+
+#board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 15px;
+  height: 500px;
+  border-radius: 6px;
+  background-color: #bbada0;
+  margin-bottom: 40px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 106px;
+  width: 106px;
+  border-radius: 3px;
+  background-color: #CDC1B4;
+  font-size: 55px;
+  font-weight: 700;
+}
+
+#game-over {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6431372549);
+}
+
+.x2 {
+  background-color: #EEE4DA;
+  color: #776e65;
+}
+
+.x4 {
+  background-color: #EEE1C9;
+  color: #776e65;
+}
+
+.x8 {
+  background-color: #F3B27A;
+}
+
+.x16 {
+  background-color: #F69664;
+}
+
+.x32 {
+  background-color: #F77C5F;
+}
+
+.x64 {
+  background-color: #F75F3B;
+}
+
+.x128 {
+  background-color: #EDD073;
+}
+
+.x256 {
+  background-color: #EDCC62;
+}
+
+.x512 {
+  background-color: #EDC950;
+}
+
+.x1024 {
+  background-color: #EDC53F;
+  font-size: 38px;
+}
+
+.x2048 {
+  background-color: #EDC22E;
+  font-size: 38px;
+}
+
+.x4096,
+.x8192 {
+  background-color: #3C3A33;
+  font-size: 38px;
+}
+
+.x16384,
+.x32768,
+.x65536 {
+  background-color: #000000;
+  font-size: 30px;
+}
+
+.x131072 {
+  background: linear-gradient(120deg, rgb(255, 97, 97) 0%, rgb(255, 186, 94) 20%, rgb(252, 255, 110) 40%, rgb(131, 255, 122) 60%, rgb(125, 120, 255) 80%, rgb(241, 110, 255) 100%);
+  color: black;
+  font-size: 25px;
+  border: 1px solid white;
+}
+
+#rules-and-footer p {
+  line-height: 30px;
+}
+
+hr {
+  border: 1px solid #D8D4D0;
+  border-bottom: none;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
