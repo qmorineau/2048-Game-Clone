@@ -32,7 +32,7 @@ button:hover {
 
 .container {
   width: 500px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 #contact {
@@ -56,7 +56,6 @@ button:hover {
 #title-and-score {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
 }
 
 #title-and-score h1 {
@@ -115,6 +114,7 @@ a {
   line-height: 42px;
   padding: 0 20px;
   border-radius: 3px;
+  outline: none;
 }
 
 #board {
@@ -139,6 +139,7 @@ a {
   background-color: #CDC1B4;
   font-size: 55px;
   font-weight: 700;
+  color: white;
 }
 
 #game-over {
@@ -147,7 +148,35 @@ a {
   left: 0px;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6431372549);
+  background-color: rgba(237, 227, 217, 0.73);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  transition: 3s;
+  opacity: 0%;
+}
+
+#game-over h1 {
+  font-size: 60px;
+  line-height: 60px;
+  color: #776e65;
+}
+
+.game-over-restart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8f7a66;
+  height: 40px;
+  color: #faf8ef;
+  font-weight: 700;
+  line-height: 42px;
+  padding: 0 20px;
+  border-radius: 3px;
+  outline: none;
+  cursor: default;
 }
 
 .x2 {
@@ -227,4 +256,4 @@ hr {
   border-bottom: none;
   margin-top: 20px;
   margin-bottom: 30px;
-}
+}/*# sourceMappingURL=main.css.map */

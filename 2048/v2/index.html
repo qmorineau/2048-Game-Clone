@@ -12,13 +12,13 @@
         <div id="title-and-score">
             <h1>2048</h1>
             <div id="score-container">
-                <div class="score main-score">
+                <div class="score">
                     <h3>SCORE</h3>
-                    <h2>0</h2>
+                    <h2 id="actual-score">0</h2>
                 </div>
-                <div class="score best-score">
+                <div class="score">
                     <h3>BEST</h3>
-                    <h2>0</h2>
+                    <h2 id="best-score">0</h2>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 <p>Join the tiles, get to <strong>2048!</strong></p>
                 <a href="#rules"><strong>How to play &rarr;</strong></a>
             </div>
-            <button>New Game</button>
+            <button class="restart">New Game</button>
         </div>
         <div id="board">
             <div class="cell"></div>
@@ -48,7 +48,7 @@
             <div class="cell"></div>
             <div id="game-over">
                 <h1>Game over!</h1>
-                <button>Try again</button>
+                <button class="restart game-over-restart">Try again</button>
             </div>
         </div>
         <div id="rules-and-footer">

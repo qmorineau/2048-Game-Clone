@@ -207,11 +207,11 @@ document.addEventListener("keyup", (e) => {
         }
     checkGameOver()
     } else {
-        console.log("game over")
+       /*  console.log("game over")
         let newDiv = document.createElement('div');
         let gameOverModal = body.appendChild(newDiv);
         gameOverModal.id = "gameOverModal";
         let gameOverWindow = gameOverModal.appendChild(newDiv);
-        gameOverWindow.id = "gameOverWindow";
+        gameOverWindow.id = "gameOverWindow"; */
     }
 })

@@ -20,6 +20,7 @@
    background-color: $bg1;
    font-size: 55px;
    font-weight: 700;
+   color: white;
 }
 
 #game-over {
@@ -28,7 +29,25 @@
    left: 0px;
    height: 100%;
    width: 100%;
-   background-color: #000000a4;
+   background-color: rgba(237, 227, 217, 0.73);
+   display: flex;
+   flex-direction: column;
+   gap: 40px;
+   justify-content: center;
+   align-items: center;
+   transition: 3s;
+   opacity: 0%;
+}
+
+#game-over  h1 {
+   font-size: 60px;
+   line-height: 60px;
+   color: $color3;
+}
+
+.game-over-restart {
+   @include button;
+   cursor: default;
 }
 
 // Cell Number Color

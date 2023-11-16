@@ -5,7 +5,7 @@
    margin: 0px;
    padding: 0px;
    box-sizing: border-box;
-   outline: 1px solid red;
+   /* outline: 1px solid red; */
 }
 
 body {
@@ -76,7 +76,7 @@ button {
     color: black;
 }
 
-.cell {
+.block {
    height: 100px;
    width: 100px;
    border-radius: 5px;
@@ -164,7 +164,7 @@ button {
    height: 100%;
    width: 100%;
    background-color: rgba(237, 227, 217, 0.73);
-   display: flex;
+   display: none;
    justify-content: center;
    align-items: center;
    flex-direction: column;

@@ -22,10 +22,10 @@ button:hover {
 
 .container {
     width: 500px;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
-@import 'top';
+@import 'beforeBoard';
 @import 'board';
-@import 'bottom';
+@import 'afterBoard';
 
