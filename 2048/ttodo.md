@@ -1,0 +1,3 @@
+- responsive
+- animation score
+- animation mmouvement/fusion ???
