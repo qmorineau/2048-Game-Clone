@@ -2,6 +2,25 @@
     line-height: 30px;
 }
 
+#rules {
+    padding: 15px;
+    border-radius: 5px;
+    width: 105%;
+    position: relative;
+    left: -2.5%;
+}
+body:has(#clicked-rules:not(:active)) {
+    #rules {
+        transition: 3s;
+    }
+}
+
+body:has(#clicked-rules:active) {
+    #rules {
+        background-color: #F3D774;
+    }
+}
+
 hr {
     border: 1px solid #D8D4D0;
     border-bottom: none;

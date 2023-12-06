@@ -32,6 +32,7 @@
 }
 
 .score {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,6 +41,27 @@
     height: 45px;
     padding: 0px 10px;
     margin-top: 8px;
+}
+
+#move-total-score {
+    position: absolute;
+    color: $color3;
+    font-weight: 700;
+    font-size: 1.2;
+    bottom: 5px;
+    animation-name: score-animation;
+    animation-duration: 1s;
+}
+
+@keyframes score-animation {
+    from {
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+    to {
+        transform: translateY(-50px);
+        opacity: 0%;
+    }
 }
 
 .score h3 {

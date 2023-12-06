@@ -31,12 +31,12 @@ columnsReverse.forEach(element => {
 
 // Generate Number
 
-let randomPosition = () => {
+const randomPosition = () => {
     random = Math.floor(Math.random()*16);
     return random;
 }
 
-let newNumber = () => {
+const newNumber = () => {
     let cell = grid.children[randomPosition()];
     while (cell.textContent) {
         cell = grid.children[randomPosition()];
@@ -53,7 +53,7 @@ let newNumber = () => {
 
 // Move
 
-let move = (direction) => {
+const move = (direction) => {
     let emptyGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let temp = retrieveGrid(direction, emptyGrid);
     let newTemp = removeZero(temp);
@@ -63,7 +63,7 @@ let move = (direction) => {
     writeNumber(newTemp, direction);
 }
 
-let checkMove = (direction) => {
+const checkMove = (direction) => {
     let emptyGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     resetEmptyGrid();
     let temp = retrieveGrid(direction, emptyGrid);
@@ -77,7 +77,7 @@ let checkMove = (direction) => {
     }
 }
 
-let retrieveGrid = (array, emptyGrid) => {
+const retrieveGrid = (array, emptyGrid) => {
     let temp = [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
@@ -101,12 +101,14 @@ let retrieveGrid = (array, emptyGrid) => {
     return temp;
 }
 
-let gridAfterMove = (temp, check) => {
+const gridAfterMove = (temp, check) => {
+    let moveTotalScore = 0;
     for (let i = 0; i <= 3; i++) {
         for (let j = 2; j >= 0; j--) {
             if (temp[i][j] == temp[i][j+1] && temp[i][j] !== 0) {
                 temp[i][j+1] = parseInt(temp[i][j])+parseInt(temp[i][j+1]);
                 if (!check) {
+                    moveTotalScore += parseInt(temp[i][j+1]);
                     incrementScore(temp[i][j+1]);
                 }
                 temp[i].splice(j, 1);
@@ -116,10 +118,13 @@ let gridAfterMove = (temp, check) => {
             }
         }
     }
+    if (moveTotalScore) {
+        displayTotalMoveScore(moveTotalScore)
+    }
     return temp;
 }
 
-let writeNumber = (newTemp, array) => {
+const writeNumber = (newTemp, array) => {
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 4; j++) {
             if (newTemp[i][j]) {
@@ -130,7 +135,7 @@ let writeNumber = (newTemp, array) => {
     }
 }
 
-let removeNumber = () => {
+const removeNumber = () => {
     for (i = 0; i < 16; i++) {
         grid.children[i].textContent = "";
         grid.children[i].removeAttribute("class");
@@ -138,7 +143,7 @@ let removeNumber = () => {
     }
 }
 
-let removeZero = (temp) => {
+const removeZero = (temp) => {
     let newTemp = [];
     temp.forEach(element => {
         let filtered = element.filter((number) => number != 0);
@@ -150,18 +155,29 @@ let removeZero = (temp) => {
     return newTemp;
 }
 
-let resetEmptyGrid = () => {
+const resetEmptyGrid = () => {
     emptyGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 }
 
 // Score
 
-let incrementScore = (number) => {
-    let score = document.querySelector("#actual-score");
+const incrementScore = (number) => {
+    const score = document.querySelector("#actual-score");
     score.textContent = parseInt(score.textContent) + parseInt(number);
 }
 
-let refreshHighScore = () => {
+const displayTotalMoveScore = (number) => {
+    const score = document.querySelector(".score");
+    const newDiv = document.createElement("div");
+    const tempDiv = score.appendChild(newDiv);
+    tempDiv.textContent = `+${number}`;
+    tempDiv.id = "move-total-score";
+    setTimeout(() => {
+        tempDiv.remove();
+    }, 800)
+}
+
+const refreshHighScore = () => {
     let localBestScore = JSON.parse(localStorage.getItem("High Score"));
     let mainScore = document.querySelector("#actual-score").textContent;
     let bestScore = document.querySelector("#best-score");
@@ -172,7 +188,7 @@ let refreshHighScore = () => {
     bestScore.textContent = localBestScore;
 }
 
-let retrieveHighScore = () => {
+const retrieveHighScore = () => {
     if (!localStorage.getItem("High Score")) {
         localStorage.setItem("High Score", JSON.stringify(0));
     } else {
@@ -182,17 +198,30 @@ let retrieveHighScore = () => {
 
 // Game Over
 
-let gameOver = () => {
+const gameOver = () => {
     const modal = document.querySelector("#game-over");
     const button = document.querySelector(".game-over-restart");
     modal.style.opacity = "100%";
     button.style.cursor = "pointer";
 }
 
-let checkGameOver = () => {
+const checkGameOver = () => {
     if (checkMove(columns) == false && checkMove(columnsReverse) == false && checkMove(rows) == false && checkMove(rowsReverse) == false) {
         isGameOver = true;
     }
+}
+
+const newGameFunc = () => {
+    const modal = document.querySelector("#game-over");
+    const button = document.querySelector('.game-over-restart');
+    const score = document.querySelector('#actual-score');
+    score.textContent = 0;
+    button.style.cursor = "default";
+    modal.style.opacity = "0%";
+    isGameOver = false;
+    removeNumber();
+    newNumber();
+    newNumber();
 }
 
 ////// Actions //////
@@ -227,6 +256,9 @@ document.addEventListener("keydown", (e) => {
                 newNumber();
             }
             break;
+        case "r" :
+            newGameFunc()
+            break;
         }
     refreshHighScore();
     checkGameOver();
@@ -236,15 +268,6 @@ document.addEventListener("keydown", (e) => {
 })
 document.addEventListener("click", (e) => {
     if (e.target.matches(".restart")) {
-        const modal = document.querySelector("#game-over");
-        const button = document.querySelector('.game-over-restart');
-        const score = document.querySelector('#actual-score');
-        score.textContent = 0;
-        button.style.cursor = "default";
-        modal.style.opacity = "0%";
-        isGameOver = false;
-        removeNumber();
-        newNumber();
-        newNumber();
+        newGameFunc()
     }
 })

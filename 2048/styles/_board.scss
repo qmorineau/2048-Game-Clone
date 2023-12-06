@@ -1,4 +1,5 @@
-#board {
+#board,
+#visual-board {
    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -10,21 +11,38 @@
     margin-bottom: 40px;
 }
 
-.cell {
+#visual-board {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   top: 0x;
+   left: 0px;
+   z-index: 0;
+}
+
+.cell,
+.colored-cell {
    display: flex;
    justify-content: center;
    align-items: center;
    height: 106px;
    width: 106px;
    border-radius: 3px;
-   background-color: $bg1;
+   position: relative;
+   z-index: 10;
    font-size: 55px;
    font-weight: 700;
    color: white;
 }
 
+.colored-cell {
+   background-color: $bg1;
+   z-index: -1;
+}
+
 #game-over {
    position: absolute;
+   z-index: 100;
    top: 0px;
    left: 0px;
    height: 100%;

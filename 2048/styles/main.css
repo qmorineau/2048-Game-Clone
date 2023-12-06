@@ -69,6 +69,7 @@ button:hover {
 }
 
 .score {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,6 +80,26 @@ button:hover {
   margin-top: 8px;
 }
 
+#move-total-score {
+  position: absolute;
+  color: #776e65;
+  font-weight: 700;
+  font-size: 1.2;
+  bottom: 5px;
+  animation-name: score-animation;
+  animation-duration: 1s;
+}
+
+@keyframes score-animation {
+  from {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0%;
+  }
+}
 .score h3 {
   color: #EEE4DA;
   font-size: 13px;
@@ -117,7 +138,8 @@ a {
   outline: none;
 }
 
-#board {
+#board,
+#visual-board {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -129,21 +151,38 @@ a {
   margin-bottom: 40px;
 }
 
-.cell {
+#visual-board {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0x;
+  left: 0px;
+  z-index: 0;
+}
+
+.cell,
+.colored-cell {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 106px;
   width: 106px;
   border-radius: 3px;
-  background-color: #CDC1B4;
+  position: relative;
+  z-index: 10;
   font-size: 55px;
   font-weight: 700;
   color: white;
 }
 
+.colored-cell {
+  background-color: #CDC1B4;
+  z-index: -1;
+}
+
 #game-over {
   position: absolute;
+  z-index: 100;
   top: 0px;
   left: 0px;
   height: 100%;
@@ -251,9 +290,25 @@ a {
   line-height: 30px;
 }
 
+#rules {
+  padding: 15px;
+  border-radius: 5px;
+  width: 105%;
+  position: relative;
+  left: -2.5%;
+}
+
+body:has(#clicked-rules:not(:active)) #rules {
+  transition: 3s;
+}
+
+body:has(#clicked-rules:active) #rules {
+  background-color: #F3D774;
+}
+
 hr {
   border: 1px solid #D8D4D0;
   border-bottom: none;
   margin-top: 20px;
   margin-bottom: 30px;
-}/*# sourceMappingURL=main.css.map */
+}
