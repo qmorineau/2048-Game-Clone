@@ -1,6 +1,8 @@
 ////// Variables //////
 
 let isGameOver = false;
+let isGameWin = false;
+let isGameAlreadyWin = false;
 const grid = document.querySelector('#board');
 
 //Array for position of the children
@@ -110,6 +112,7 @@ const gridAfterMove = (temp, check) => {
                 if (!check) {
                     moveTotalScore += parseInt(temp[i][j+1]);
                     incrementScore(temp[i][j+1]);
+                    checkWin(temp[i][j+1])
                 }
                 temp[i].splice(j, 1);
                 if (temp[i].length !== 4) {
@@ -119,7 +122,7 @@ const gridAfterMove = (temp, check) => {
         }
     }
     if (moveTotalScore) {
-        displayTotalMoveScore(moveTotalScore)
+        displayTotalMoveScore(moveTotalScore);
     }
     return temp;
 }
@@ -174,7 +177,7 @@ const displayTotalMoveScore = (number) => {
     tempDiv.id = "move-total-score";
     setTimeout(() => {
         tempDiv.remove();
-    }, 800)
+    }, 800);
 }
 
 const refreshHighScore = () => {
@@ -224,6 +227,36 @@ const newGameFunc = () => {
     newNumber();
 }
 
+// Win
+
+const gameWin = () => {
+    const modal = document.querySelector("#you-win");
+    const buttons = document.querySelectorAll(".yw-btn");
+    modal.style.zIndex = "2";
+    modal.style.opacity = "100%";
+    buttons.forEach(button => {
+        button.style.cursor = "pointer";
+    })
+}
+
+const closeWinModal = () => {
+    const modal = document.querySelector('#you-win');
+    const buttons = document.querySelectorAll('.yw-btn');
+    buttons.forEach(button => {
+        button.style.cursor = "default";
+        modal.style.opacity = "0%";
+        modal.style.zIndex = "1";
+    });
+    isGameAlreadyWin = true;
+    isGameWin = false;
+}
+
+const checkWin = (number) => {
+    if (parseInt(number) === 2048) {
+        isGameWin = true;
+    }
+}
+
 ////// Actions //////
 
 retrieveHighScore();
@@ -231,43 +264,56 @@ newNumber();
 newNumber();
 document.addEventListener("keydown", (e) => {
     e.preventDefault();
-    switch(e.key) {
-        case "ArrowUp" :
-            if (checkMove(columnsReverse)) {
-                move(columnsReverse);
-                newNumber();
+    if (!isGameOver && !isGameWin) {
+        switch(e.key) {
+            case "ArrowUp" :
+                if (checkMove(columnsReverse)) {
+                    move(columnsReverse);
+                    newNumber();
+                }
+                break;
+            case "ArrowDown" :
+                if (checkMove(columns)) {
+                    move(columns);
+                    newNumber();
+                }
+                break;
+            case "ArrowLeft" :
+                if (checkMove(rowsReverse)) {
+                    move(rowsReverse);
+                    newNumber();
+                }
+                break;
+            case "ArrowRight" :
+                if (checkMove(rows)) {
+                    move(rows);
+                    newNumber();
+                }
+                break;
+            case "r" :
+                newGameFunc()
+                break;
             }
-            break;
-        case "ArrowDown" :
-            if (checkMove(columns)) {
-                move(columns);
-                newNumber();
-            }
-            break;
-        case "ArrowLeft" :
-            if (checkMove(rowsReverse)) {
-                move(rowsReverse);
-                newNumber();
-            }
-            break;
-        case "ArrowRight" :
-            if (checkMove(rows)) {
-                move(rows);
-                newNumber();
-            }
-            break;
-        case "r" :
-            newGameFunc()
-            break;
+        refreshHighScore();
+        checkGameOver();
+        if (isGameWin) {
+            gameWin();
+        } else if (isGameOver) {
+            gameOver();
         }
-    refreshHighScore();
-    checkGameOver();
-    if (isGameOver) {
-        gameOver();
-    }
+    } 
 })
 document.addEventListener("click", (e) => {
-    if (e.target.matches(".restart")) {
-        newGameFunc()
+    if (isGameOver) {
+        if (e.target.matches(".game-over-restart")) {
+            newGameFunc();
+        }
+    } else if (isGameWin && !isGameAlreadyWin) {
+        if (e.target.matches(".keep-going-btn")) {
+            closeWinModal();
+        } else if (e.target.matches(".you-win-restart-btn")) {
+            newGameFunc();
+            closeWinModal();
+        }
     }
 })

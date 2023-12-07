@@ -1,3 +1,2 @@
 - responsive
 - animation mouvement/fusion ???
-- add message when 20478 triggered ?

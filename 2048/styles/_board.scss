@@ -5,7 +5,6 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     padding: 15px;
-    height: 500px;
     border-radius: 6px;
     background-color: $bg2;
     margin-bottom: 40px;
@@ -29,7 +28,7 @@
    width: 106px;
    border-radius: 3px;
    position: relative;
-   z-index: 10;
+   z-index: 1;
    font-size: 55px;
    font-weight: 700;
    color: white;
@@ -40,14 +39,14 @@
    z-index: -1;
 }
 
-#game-over {
+#game-over,
+#you-win {
    position: absolute;
    z-index: 100;
    top: 0px;
    left: 0px;
    height: 100%;
    width: 100%;
-   background-color: rgba(237, 227, 217, 0.73);
    display: flex;
    flex-direction: column;
    gap: 40px;
@@ -55,6 +54,12 @@
    align-items: center;
    transition: 3s;
    opacity: 0%;
+   cursor: default;
+}
+
+#game-over {
+   background-color: rgba(237, 227, 217, 0.73);
+   z-index: 2;
 }
 
 #game-over  h1 {
@@ -64,6 +69,28 @@
 }
 
 .game-over-restart {
+   @include button;
+   cursor: default;
+}
+
+#you-win {
+   background-color: rgba(237, 192, 44, 0.5);
+   z-index: 1;
+}
+
+#you-win h1 {
+   font-size: 60px;
+   line-height: 60px;
+   color: $color1;
+}
+
+#win-btn-container {
+   display: flex;
+   gap: 20px;
+}
+
+.keep-going-btn,
+.you-win-restart-btn {
    @include button;
    cursor: default;
 }
@@ -97,23 +124,28 @@
 
 .x128 {
    background-color: #EDD073;
+   box-shadow: 0px 0px 10px 1px #EDD073;
 }
 
 .x256 {
    background-color: #EDCC62;
+   box-shadow: 0px 0px 10px 2px #EDCC62;
 }
 
 .x512 {
    background-color: #EDC950;
+   box-shadow: 0px 0px 10px 3px #EDC950;
 }
 
 .x1024 {
    background-color: #EDC53F;
+   box-shadow: 0px 0px 10px 4px #EDC53F;
    font-size: 38px;
 }
 
 .x2048 {
    background-color: #EDC22E;
+   box-shadow: 0px 0px 10px 5px #EDC22E;
    font-size: 38px;
 }
 

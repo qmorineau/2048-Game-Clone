@@ -27,7 +27,6 @@ Open the index.html file in your preferred web browser.
 
 Use the arrow keys (Up, Down, Left, Right) to move tiles in the corresponding direction.
 Press the R key to restart the game.
-Press the ESC key to pause the game.
 
 ## Gameplay
 
