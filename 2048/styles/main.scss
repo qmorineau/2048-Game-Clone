@@ -8,7 +8,6 @@
 * { 
     font-family: $font;
     font-size: 18px;
-    /* outline: 1px solid red; */
 }
 
 body {
@@ -21,8 +20,12 @@ button:hover {
 }
 
 .container {
-    width: 500px;
+    width: 360px;
     margin: 30px auto;
+
+    @include ipad {
+        width: 500px;
+    }
 }
 
 @import 'beforeBoard';

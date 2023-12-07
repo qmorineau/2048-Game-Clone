@@ -10,6 +10,7 @@
     width: 100px;
     border-bottom-left-radius: 5px;
     transition: 0.15s;
+    z-index: 100;
 }
 
 #contact:hover {
@@ -29,6 +30,12 @@
 #score-container {
     display: flex;
     gap: 5px;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    @include ipad {
+        flex-direction: row;
+    }
 }
 
 .score {

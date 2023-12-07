@@ -1,3 +1,43 @@
+// Media Queries
+
+@mixin ipad() {
+    @media screen and (min-width: $ipad) {
+      @content;
+    }
+}
+
+@mixin ipadPro() {
+    @media screen and (min-width: $ipadPro) {
+      @content;
+    }
+}
+
+@mixin laptop13() {
+    @media screen and (min-width: $laptop13) {
+      @content;
+    }
+}
+
+@mixin laptop() {
+    @media screen and (min-width: $laptop) {
+      @content;
+    }
+}
+  
+@mixin pc() {
+    @media screen and (min-width: $pc) {
+      @content;
+    }
+}
+  
+@mixin bigPc() {
+    @media screen and (min-width: $bigPc) {
+      @content;
+    }
+}
+
+// Others
+
 @mixin button() {
     display: flex;
     justify-content: center;
