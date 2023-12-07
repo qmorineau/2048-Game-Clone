@@ -11,6 +11,7 @@ This project is a clone of the popular 2048 game implemented using HTML, Sass, a
 3. [Gameplay](#gameplay)
 4. [Project Purpose](#project-purpose)
 5. [Future Plans](#future-plans)
+6. [License](#license)
 
 ## Installation
 
@@ -54,3 +55,6 @@ This project serves as a personal exercise to test and improve my logical reason
 In subsequent iterations of the project, I plan to explore and implement animations for the tiles. Integrating animations will not only enhance the visual appeal of the game but also provide a valuable opportunity to delve into front-end development techniques, further refining my skills in web development.
 
 Feel free to check back for updates as the project evolves!
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
