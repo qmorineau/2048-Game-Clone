@@ -20,7 +20,7 @@ To run the game locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/2048-game-clone.git
+   git clone https://github.com/qmorineau/2048-game-clone.git
 
 Open the index.html file in your preferred web browser.
 
@@ -57,4 +57,4 @@ In subsequent iterations of the project, I plan to explore and implement animati
 Feel free to check back for updates as the project evolves!
 
 ## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the [license](LICENSE) file for details.
