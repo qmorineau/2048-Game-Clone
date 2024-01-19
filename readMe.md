@@ -53,6 +53,7 @@ This project serves as a personal exercise to test and improve my logical reason
 
 ## Future Plans
 In subsequent iterations of the project, I plan to explore and implement animations for the tiles. Integrating animations will not only enhance the visual appeal of the game but also provide a valuable opportunity to delve into front-end development techniques, further refining my skills in web development.
+Also, I plan to implement a playability on smartphone even if the best solution is to do a mobile app instead of a website for a project like this.
 
 Feel free to check back for updates as the project evolves!
 
