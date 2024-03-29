@@ -4,6 +4,8 @@
 
 This project is a clone of the popular 2048 game implemented using HTML, Sass, and JavaScript. The objective of the game is to slide numbered tiles on a grid to combine them and create a tile with the number 2048. The game continues until the player achieves this goal or the grid is full.
 
+[See the project](https://qmorineau.github.io/2048-Game-Clone/)
+
 ## Table of Contents
 
 1. [Installation](#installation)
@@ -53,7 +55,7 @@ This project serves as a personal exercise to test and improve my logical reason
 
 ## Future Plans
 In subsequent iterations of the project, I plan to explore and implement animations for the tiles. Integrating animations will not only enhance the visual appeal of the game but also provide a valuable opportunity to delve into front-end development techniques, further refining my skills in web development.
-Also, I plan to implement a playability on smartphone even if the best solution is to do a mobile app instead of a website for a project like this.
+Also, I plan to implement playability on smartphones even if the best solution is to do a mobile app instead of a website for a project like this.
 
 Feel free to check back for updates as the project evolves!
 
